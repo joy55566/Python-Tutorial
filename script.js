@@ -104,6 +104,41 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// Menu Button Animation
+const menuBtn = document.querySelector('.menu-btn');
+const mobileNavLinks = document.querySelector('.nav-links');
+
+let menuOpen = false;
+menuBtn.addEventListener('click', () => {
+    if(!menuOpen) {
+        menuBtn.classList.add('open');
+        mobileNavLinks.classList.add('active');
+        menuOpen = true;
+    } else {
+        menuBtn.classList.remove('open');
+        mobileNavLinks.classList.remove('active');
+        menuOpen = false;
+    }
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (!menuBtn.contains(e.target) && !mobileNavLinks.contains(e.target) && menuOpen) {
+        menuBtn.classList.remove('open');
+        mobileNavLinks.classList.remove('active');
+        menuOpen = false;
+    }
+});
+
+// Close menu when clicking on a nav link
+mobileNavLinks.addEventListener('click', () => {
+    if (menuOpen) {
+        menuBtn.classList.remove('open');
+        mobileNavLinks.classList.remove('active');
+        menuOpen = false;
+    }
+});
+
 // Intersection Observer for scroll animations
 const observerOptions = {
     threshold: 0.1

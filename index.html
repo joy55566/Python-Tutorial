@@ -83,40 +83,89 @@
             from, to { border-color: transparent }
             50% { border-color: #00ff00 }
         }
+
+        .floating-numbers {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .number {
+            position: absolute;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #fff;
+            animation: float-up 5s infinite;
+        }
+
+        @keyframes float-up {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 <body class="dark-mode">
+    <!-- Data visualization background elements -->
+    <div class="graph-pattern"></div>
+    <div class="data-points">
+        <div class="data-point" style="--move-x: 100px; --move-y: -150px; animation-delay: 0s;"></div>
+        <div class="data-point" style="--move-x: -120px; --move-y: -100px; animation-delay: 2s;"></div>
+        <div class="data-point" style="--move-x: 150px; --move-y: 120px; animation-delay: 4s;"></div>
+        <div class="data-point" style="--move-x: -80px; --move-y: 180px; animation-delay: 6s;"></div>
+        <div class="data-point" style="--move-x: 200px; --move-y: -80px; animation-delay: 8s;"></div>
+        <div class="data-line" style="top: 20%; left: 30%; animation-delay: 0s;"></div>
+        <div class="data-line" style="top: 60%; left: 70%; animation-delay: 5s;"></div>
+        <div class="data-line" style="top: 80%; left: 20%; animation-delay: 10s;"></div>
+    </div>
     <nav class="navbar">
         <div class="logo">
             <div class="portfolio-icon">
-                <i class="fas fa-laptop-code"></i>
-                <span>Portfolio</span>
+                <i class="fas fa-code"></i>
             </div>
+            <span>Portfolio</span>
         </div>
-        <div class="nav-links">
-            <a href="#home" class="nav-item active">Home</a>
-            <a href="#about" class="nav-item">About</a>
-            <a href="#services" class="nav-item">Services</a>
-            <a href="#skills" class="nav-item">Skills</a>
-            <a href="#projects" class="nav-item">Projects</a>
-            <a href="#contact" class="nav-item">Contact</a>
+        <div class="menu-btn">
+            <div class="menu-btn__burger"></div>
         </div>
-        <div class="menu-toggle">
-            <i class="fas fa-bars"></i>
-        </div>
+        <ul class="nav-links">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
     </nav>
 
     <section id="home" class="hero">
+        <div class="floating-numbers">
+            <!-- Add random numbers that will float up -->
+            <span class="number" style="left: 10%; animation-delay: 0s;">01</span>
+            <span class="number" style="left: 25%; animation-delay: 2s;">10</span>
+            <span class="number" style="left: 40%; animation-delay: 4s;">11</span>
+            <span class="number" style="left: 60%; animation-delay: 1s;">00</span>
+            <span class="number" style="left: 75%; animation-delay: 3s;">01</span>
+            <span class="number" style="left: 90%; animation-delay: 5s;">10</span>
+        </div>
         <div class="hero-content">
             <div class="hero-text">
                 <h2 class="hello-text">Hello I'm</h2>
                 <h1 class="name-text" data-text="Joy">Joy</h1>
                 <h3 class="profession-text">
-                    I am a <span class="typewriter"></span>
+                    I am a <span class="typewriter">Data Scientist</span>
                 </h3>
                 <p class="hero-description">
-                    I'm a web Designer with extensive experience for over 3 years.
-                    expertise is to create and website design, Frontend design, and many more...
+                    I'm a Data Scientist with extensive experience in Machine Learning, Deep Learning, and Data Analysis.
+                    My expertise includes predictive modeling, statistical analysis, and developing AI solutions.
                 </p>
                 <div class="social-links">
                     <a href="https://wa.me/+8801892146659" class="social-icon" target="_blank" title="WhatsApp">
@@ -148,6 +197,7 @@
             <h2>About <span class="highlight">Me</span></h2>
             <h3>Who I Am</h3>
         </div>
+
         <div class="about-content">
             <div class="about-image">
                 <div class="image-border">
@@ -156,9 +206,9 @@
             </div>
             <div class="about-text">
                 <p>
-                    I'm a passionate web developer with a strong foundation in both frontend and backend technologies.
-                    My journey in web development started 3 years ago, and since then, I've been creating beautiful
-                    and functional websites that leave a lasting impression.
+                    I'm a passionate Data Scientist with a strong foundation in statistics, mathematics, and programming.
+                    My journey in data science started 3 years ago, and since then, I've been developing innovative
+                    solutions using AI and Machine Learning that drive business value and insights.
                 </p>
                 <div class="about-info">
                     <div class="info-item">
@@ -167,7 +217,7 @@
                     </div>
                     <div class="info-item">
                         <span class="info-title">Specialty:</span>
-                        <span class="info-value">Web Design</span>
+                        <span class="info-value">Machine Learning & AI</span>
                     </div>
                     <div class="info-item">
                         <span class="info-title">Address:</span>
@@ -175,7 +225,7 @@
                     </div>
                     <div class="info-item">
                         <span class="info-title">Email:</span>
-                        <span class="info-value">joy@example.com</span>
+                        <span class="info-value">joynixon271@gmail.com</span>
                     </div>
                 </div>
                 <a href="#" class="download-cv">Download CV</a>
@@ -185,112 +235,102 @@
 
     <section id="services" class="services">
         <div class="section-title">
-            <h2>My <span class="highlight">Services</span></h2>
-            <h3>What I Provide</h3>
+            <h2>My Services</h2>
         </div>
         <div class="services-container">
             <div class="service-card">
-                <i class="fas fa-code"></i>
-                <h3>Web Development</h3>
-                <p>Create modern and responsive websites using the latest technologies and best practices.</p>
+                <i class="fas fa-brain"></i>
+                <h3>Machine Learning</h3>
+                <p>Developing custom ML models for prediction, classification, and pattern recognition using cutting-edge algorithms.</p>
             </div>
             <div class="service-card">
-                <i class="fas fa-paint-brush"></i>
-                <h3>Web Design</h3>
-                <p>Design beautiful and user-friendly interfaces that provide great user experience.</p>
+                <i class="fas fa-chart-line"></i>
+                <h3>Data Analysis</h3>
+                <p>In-depth analysis of complex datasets to extract meaningful insights and drive data-informed decisions.</p>
             </div>
             <div class="service-card">
-                <i class="fas fa-mobile-alt"></i>
-                <h3>Responsive Design</h3>
-                <p>Ensure your website works perfectly on all devices and screen sizes.</p>
+                <i class="fas fa-robot"></i>
+                <h3>Deep Learning</h3>
+                <p>Building neural networks for computer vision, NLP, and other AI applications using PyTorch and TensorFlow.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-database"></i>
+                <h3>Big Data Analytics</h3>
+                <p>Processing and analyzing large-scale datasets using tools like Spark, Hadoop, and cloud computing.</p>
             </div>
         </div>
     </section>
 
     <section id="skills" class="skills">
         <div class="section-title">
-            <h2>My <span class="highlight">Skills</span></h2>
-            <h3>What I Know</h3>
+            <h2>My Skills</h2>
         </div>
         <div class="skills-container">
             <div class="skill-category">
-                <h3>Frontend Development</h3>
+                <h3>Programming</h3>
                 <div class="skill-items">
                     <div class="skill-item">
-                        <div class="skill-info">
-                            <span>HTML</span>
-                            <span>95%</span>
-                        </div>
+                        <span class="skill-name">Python</span>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="width: 95%"></div>
+                            <div class="skill-level" style="width: 95%"></div>
                         </div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-info">
-                            <span>CSS</span>
-                            <span>90%</span>
-                        </div>
+                        <span class="skill-name">R</span>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%"></div>
+                            <div class="skill-level" style="width: 85%"></div>
                         </div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-info">
-                            <span>JavaScript</span>
-                            <span>85%</span>
-                        </div>
+                        <span class="skill-name">SQL</span>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>React</span>
-                            <span>80%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%"></div>
+                            <div class="skill-level" style="width: 90%"></div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="skill-category">
-                <h3>Backend Development</h3>
+                <h3>Machine Learning</h3>
                 <div class="skill-items">
                     <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Python</span>
-                            <span>85%</span>
-                        </div>
+                        <span class="skill-name">Scikit-learn</span>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%"></div>
+                            <div class="skill-level" style="width: 90%"></div>
                         </div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Node.js</span>
-                            <span>80%</span>
-                        </div>
+                        <span class="skill-name">TensorFlow</span>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%"></div>
+                            <div class="skill-level" style="width: 85%"></div>
                         </div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-info">
-                            <span>MySQL</span>
-                            <span>75%</span>
-                        </div>
+                        <span class="skill-name">PyTorch</span>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="width: 75%"></div>
+                            <div class="skill-level" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Data Analysis</h3>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <span class="skill-name">Pandas</span>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 95%"></div>
                         </div>
                     </div>
                     <div class="skill-item">
-                        <div class="skill-info">
-                            <span>MongoDB</span>
-                            <span>70%</span>
-                        </div>
+                        <span class="skill-name">NumPy</span>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="width: 70%"></div>
+                            <div class="skill-level" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Data Visualization</span>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 85%"></div>
                         </div>
                     </div>
                 </div>
@@ -300,8 +340,7 @@
 
     <section id="projects" class="projects">
         <div class="section-title">
-            <h2>My <span class="highlight">Projects</span></h2>
-            <h3>Recent Works</h3>
+            <h2>My Projects</h2>
         </div>
         <div class="share-buttons">
             <a href="https://www.facebook.com/sharer/sharer.php?u=https://joy55566.github.io/Python-Tutorial/" target="_blank" class="share-button facebook">
@@ -317,112 +356,29 @@
         <div class="projects-container">
             <div class="project-card">
                 <div class="project-img">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="E-commerce Website">
+                    <img src="https://images.unsplash.com/photo-1527474305487-b87b222841cc?w=600" alt="AI Project">
                 </div>
                 <div class="project-content">
-                    <h3>E-commerce Website</h3>
-                    <p>A fully responsive e-commerce website with modern design and shopping cart functionality.</p>
-                    <div class="project-tags">
-                        <span>React</span>
-                        <span>Node.js</span>
-                        <span>MongoDB</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
-                        <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live</a>
-                    </div>
+                    <h3>Predictive Analytics System</h3>
+                    <p>Developed a machine learning model for predicting customer behavior using historical data and advanced algorithms.</p>
                 </div>
             </div>
             <div class="project-card">
                 <div class="project-img">
-                    <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Portfolio Website">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600" alt="ML Project">
                 </div>
                 <div class="project-content">
-                    <h3>Portfolio Website</h3>
-                    <p>A modern portfolio website with smooth animations and dark theme.</p>
-                    <div class="project-tags">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>JavaScript</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
-                        <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live</a>
-                    </div>
+                    <h3>Computer Vision App</h3>
+                    <p>Built a deep learning system for real-time object detection and classification using CNN architectures.</p>
                 </div>
             </div>
             <div class="project-card">
                 <div class="project-img">
-                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Task Manager">
+                    <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=600" alt="Data Analysis">
                 </div>
                 <div class="project-content">
-                    <h3>Task Manager</h3>
-                    <p>A full-stack task management application with user authentication and real-time updates.</p>
-                    <div class="project-tags">
-                        <span>React</span>
-                        <span>Express</span>
-                        <span>MongoDB</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
-                        <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live</a>
-                    </div>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-img">
-                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600&q=80" alt="App Development">
-                </div>
-                <div class="project-content">
-                    <h3>App Development</h3>
-                    <p>Modern and user-friendly mobile applications for iOS and Android platforms using React Native and Flutter.</p>
-                    <div class="project-tags">
-                        <span>React Native</span>
-                        <span>Flutter</span>
-                        <span>Firebase</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link"><i class="fas fa-info-circle"></i> Details</a>
-                        <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-img">
-                    <img src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=600&q=80" alt="Digital Marketing">
-                </div>
-                <div class="project-content">
-                    <h3>Digital Marketing</h3>
-                    <p>Comprehensive digital marketing strategies including SEO, social media marketing, and content creation.</p>
-                    <div class="project-tags">
-                        <span>SEO</span>
-                        <span>Social Media</span>
-                        <span>Analytics</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link"><i class="fas fa-info-circle"></i> Details</a>
-                        <a href="#" class="project-link"><i class="fas fa-chart-line"></i> Results</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-img">
-                    <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&q=80" alt="Ethical Hacking">
-                </div>
-                <div class="project-content">
-                    <h3>Ethical Hacking</h3>
-                    <p>Cybersecurity services including penetration testing, vulnerability assessment, and security consulting.</p>
-                    <div class="project-tags">
-                        <span>Pentesting</span>
-                        <span>Security</span>
-                        <span>Network</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link"><i class="fas fa-shield-alt"></i> Services</a>
-                        <a href="#" class="project-link"><i class="fas fa-file-alt"></i> Reports</a>
-                    </div>
+                    <h3>Market Analysis Dashboard</h3>
+                    <p>Created an interactive dashboard for market trend analysis using Python, Plotly, and Streamlit.</p>
                 </div>
             </div>
         </div>
@@ -439,8 +395,8 @@
                 <div class="contact-card email">
                     <i class="fas fa-envelope"></i>
                     <h3>Email</h3>
-                    <p>joy55566@example.com</p>
-                    <a href="mailto:joy55566@example.com" class="contact-button">
+                    <p>joynixon271@gmail.com</p>
+                    <a href="mailto:joynixon271@gmail.com" class="contact-button">
                         <i class="fas fa-paper-plane"></i> Send Email
                     </a>
                 </div>
@@ -526,7 +482,7 @@
     </footer>
 
     <script>
-        const words = ['Frontend Developer', 'Web Designer', 'UI/UX Designer', 'Freelancer'];
+        const words = ['Data Scientist', 'Machine Learning Engineer', 'Data Analyst', 'AI Expert'];
         const typewriter = document.querySelector('.typewriter');
         let wordIndex = 0;
         let charIndex = 0;
