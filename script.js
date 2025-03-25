@@ -58,23 +58,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Mobile Menu Toggle
     const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
+    const navMenu = document.querySelector('.nav-menu');
 
-    menuToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
+    menuToggle.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+        menuToggle.classList.toggle('active');
     });
 
     // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
-            navLinks.classList.remove('active');
+    document.addEventListener('click', function(e) {
+        if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+            navMenu.classList.remove('active');
+            menuToggle.classList.remove('active');
         }
     });
 
     // Close menu when clicking on a nav link
-    navLinks.querySelectorAll('.nav-item').forEach(link => {
+    const navLinks = document.querySelectorAll('.nav-item');
+    navLinks.forEach(link => {
         link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
+            navMenu.classList.remove('active');
+            menuToggle.classList.remove('active');
         });
     });
 
