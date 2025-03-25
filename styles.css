@@ -810,6 +810,43 @@ body {
     box-shadow: 0 0 30px var(--glow-color);
 }
 
+.share-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.share-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.8rem 1.5rem;
+    border-radius: 30px;
+    color: white;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.share-button:hover {
+    transform: translateY(-3px);
+}
+
+.share-button i {
+    margin-right: 8px;
+}
+
+.facebook {
+    background-color: #3b5998;
+}
+
+.twitter {
+    background-color: #1da1f2;
+}
+
+.linkedin {
+    background-color: #0077b5;
+}
+
 /* Footer */
 .footer {
     background: var(--bg-secondary);
