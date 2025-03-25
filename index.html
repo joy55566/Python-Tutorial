@@ -407,67 +407,44 @@
             <h2>Contact <span class="highlight">Me</span></h2>
             <h3>Get In Touch</h3>
         </div>
-        <div class="contact-container">
+        <div class="contact-content">
+            <form action="https://formspree.io/f/joynixon271@gmail.com" method="POST" class="contact-form">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="subject" placeholder="Subject" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
             <div class="contact-info">
-                <div class="contact-card">
+                <div class="info-item">
                     <i class="fas fa-phone"></i>
-                    <h3>Phone</h3>
-                    <p><a href="tel:+8801892146659">+880 1892146659</a></p>
+                    <div>
+                        <h3>Call Me</h3>
+                        <p>+880 1892146659</p>
+                    </div>
                 </div>
-                <div class="contact-card">
-                    <i class="fab fa-whatsapp"></i>
-                    <h3>WhatsApp</h3>
-                    <p><a href="https://wa.me/+8801892146659">+880 1892146659</a></p>
-                </div>
-                <div class="contact-card">
+                <div class="info-item">
                     <i class="fas fa-envelope"></i>
-                    <h3>Email</h3>
-                    <p><a href="mailto:joynixon271@gmail.com">joynixon271@gmail.com</a></p>
-                </div>
-                <div class="contact-social">
-                    <h3>Follow Me</h3>
-                    <div class="social-links">
-                        <a href="https://wa.me/+8801892146659" class="social-icon" target="_blank" title="WhatsApp">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                        <a href="tel:+8801892146659" class="social-icon" title="Call Me">
-                            <i class="fas fa-phone"></i>
-                        </a>
-                        <a href="mailto:joynixon271@gmail.com" class="social-icon" title="Email Me">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                        <a href="https://www.facebook.com/profile.php?id=100082733041446" class="social-icon" target="_blank" title="Facebook">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
+                    <div>
+                        <h3>Email</h3>
+                        <p>joynixon271@gmail.com</p>
                     </div>
                 </div>
-            </div>
-            <div class="contact-form">
-                <h3>Send Message</h3>
-                <form action="https://formsubmit.co/joynixon271@gmail.com" method="POST">
-                    <!-- Honeypot -->
-                    <input type="text" name="_honey" style="display:none">
-                    
-                    <!-- Disable Captcha -->
-                    <input type="hidden" name="_captcha" value="false">
-                    
-                    <!-- Success Page -->
-                    <input type="hidden" name="_next" value="https://formsubmit.co/thanks.html">
-
-                    <div class="form-group">
-                        <input type="text" name="name" placeholder="Your Name" required>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h3>Location</h3>
+                        <p>Bangladesh</p>
                     </div>
-                    <div class="form-group">
-                        <input type="email" name="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" name="subject" placeholder="Subject" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea name="message" placeholder="Your Message" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </form>
+                </div>
             </div>
         </div>
     </section>
