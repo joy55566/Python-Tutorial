@@ -11,6 +11,13 @@
     --border-color: #ffffff;
     --accent-color: #00eeff;
     --accent-hover: #0099ff;
+    --card-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.3);
+    --hover-shadow: 0 20px 40px -20px rgba(0, 238, 255, 0.3);
+    --card-border: 1px solid rgba(255, 255, 255, 0.1);
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.2);
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 }
 
 * {
@@ -89,6 +96,12 @@ body {
     font-size: 1.1rem;
     transition: var(--transition);
     position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+}
+
+.nav-item:hover {
+    transform: translateZ(20px);
 }
 
 .nav-item::after {
@@ -101,11 +114,14 @@ body {
     background: var(--primary-color);
     transition: var(--transition);
     box-shadow: 0 0 10px var(--glow-color);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    transform-origin: right;
 }
 
-.nav-item:hover::after,
-.nav-item.active::after {
-    width: 100%;
+.nav-item:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
 }
 
 .nav-item:hover,
@@ -128,11 +144,15 @@ body {
     color: var(--primary-color);
     cursor: pointer;
     transition: all 0.3s ease;
+    transform-style: preserve-3d;
+    perspective: 1000px;
 }
 
 .portfolio-icon i {
     font-size: 1.8rem;
     animation: iconFloat 3s ease-in-out infinite;
+    transform: translateZ(30px);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .portfolio-icon span {
@@ -183,6 +203,8 @@ body {
     position: relative;
     background: radial-gradient(circle at center, var(--bg-secondary) 0%, var(--bg-primary) 100%);
     overflow: hidden;
+    transform-style: preserve-3d;
+    perspective: 1000px;
 }
 
 .hero::before {
@@ -219,15 +241,99 @@ body {
 }
 
 .name-text {
-    font-size: 4.5rem;
-    font-weight: 800;
-    line-height: 1.2;
-    margin-bottom: 1rem;
-    background: linear-gradient(to right, var(--text-primary), var(--primary-color));
+    font-family: 'Russo One', sans-serif;
+    font-size: 5rem;
+    font-weight: 400;
+    margin: 0.5rem 0;
+    background: linear-gradient(135deg, #ff0066, #ff3333, #ff6600);
     -webkit-background-clip: text;
     background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: slideRight 1s ease;
+    color: transparent;
+    text-shadow: 0 0 20px rgba(255, 0, 102, 0.5);
+    position: relative;
+    display: inline-block;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    letter-spacing: 2px;
+    animation: neonPulse 3s ease-in-out infinite;
+}
+
+@keyframes neonPulse {
+    0%, 100% {
+        text-shadow: 
+            0 0 10px rgba(255, 0, 102, 0.8),
+            0 0 20px rgba(255, 0, 102, 0.8),
+            0 0 30px rgba(255, 0, 102, 0.8);
+        transform: 
+            translateY(0) 
+            rotateX(10deg) 
+            scale(1);
+    }
+    50% {
+        text-shadow: 
+            0 0 20px rgba(255, 0, 102, 0.8),
+            0 0 40px rgba(255, 0, 102, 0.8),
+            0 0 60px rgba(255, 0, 102, 0.8),
+            0 0 80px rgba(255, 0, 102, 0.5);
+        transform: 
+            translateY(-10px) 
+            rotateX(-10deg) 
+            scale(1.05);
+    }
+}
+
+.name-text::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background: linear-gradient(135deg, #ff0066, #ff3333);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    opacity: 0.5;
+    filter: blur(8px);
+    animation: textShadow 2s ease-in-out infinite alternate;
+}
+
+@keyframes textShadow {
+    0% {
+        transform: translate3d(0, 0, 0);
+        text-shadow: 0 0 10px rgba(255, 0, 102, 0.8);
+    }
+    100% {
+        transform: translate3d(10px, 5px, 0);
+        text-shadow: 0 0 20px rgba(255, 0, 102, 0.8);
+    }
+}
+
+.name-text:hover {
+    animation: rubberBand 1s ease-in-out forwards;
+}
+
+@keyframes rubberBand {
+    0% {
+        transform: scale3d(1, 1, 1);
+    }
+    30% {
+        transform: scale3d(1.25, 0.75, 1);
+    }
+    40% {
+        transform: scale3d(0.75, 1.25, 1);
+    }
+    50% {
+        transform: scale3d(1.15, 0.85, 1);
+    }
+    65% {
+        transform: scale3d(0.95, 1.05, 1);
+    }
+    75% {
+        transform: scale3d(1.05, 0.95, 1);
+    }
+    100% {
+        transform: scale3d(1, 1, 1);
+    }
 }
 
 .profession-text {
@@ -355,11 +461,18 @@ body {
     transition: var(--transition);
     box-shadow: 0 0 20px var(--glow-color);
     animation: fadeIn 1s ease;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .more-about:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 0 30px var(--glow-color);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 238, 255, 0.3);
+}
+
+.more-about:active {
+    transform: translateY(2px) scale(0.98);
 }
 
 .hero-image {
@@ -369,6 +482,8 @@ body {
     justify-content: center;
     align-items: center;
     animation: float 6s ease-in-out infinite;
+    transform-style: preserve-3d;
+    perspective: 1000px;
 }
 
 .image-circle {
@@ -457,11 +572,16 @@ body {
 .section-title {
     text-align: center;
     margin-bottom: 4rem;
+    transform-style: preserve-3d;
+    perspective: 1000px;
 }
 
 .section-title h2 {
     font-size: 3rem;
     margin-bottom: 1rem;
+    position: relative;
+    transform: translateZ(30px);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .section-title h3 {
@@ -537,25 +657,51 @@ body {
 }
 
 .service-card {
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--card-bg);
     padding: 2rem;
     border-radius: 20px;
     text-align: center;
     transition: var(--transition);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
+    border: var(--card-border);
+    box-shadow: var(--card-shadow);
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
 .service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 30px var(--glow-color);
-    border-color: var(--primary-color);
+    transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+    box-shadow: var(--hover-shadow);
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.service-card:hover::before {
+    left: 100%;
 }
 
 .service-card i {
     font-size: 3rem;
     color: var(--primary-color);
     margin-bottom: 1.5rem;
+    transform: translateZ(40px);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .service-card h3 {
@@ -662,23 +808,46 @@ body {
 }
 
 .project-card {
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--card-bg);
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--card-shadow);
     transition: all 0.3s ease;
     position: relative;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: var(--card-border);
     max-width: 100%;
     margin: 0 auto;
     transform-origin: center;
     animation: cardAppear 0.5s ease forwards;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
 .project-card:hover {
-    transform: scale(1.02) translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 238, 255, 0.2);
+    transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+    box-shadow: var(--hover-shadow);
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.project-card:hover::before {
+    left: 100%;
 }
 
 .project-img {
@@ -686,6 +855,8 @@ body {
     height: 150px;
     overflow: hidden;
     position: relative;
+    transform-style: preserve-3d;
+    perspective: 1000px;
 }
 
 .project-img img {
@@ -696,7 +867,7 @@ body {
 }
 
 .project-card:hover .project-img img {
-    transform: scale(1.1);
+    transform: scale(1.1) translateZ(20px);
 }
 
 .project-content {
@@ -758,12 +929,18 @@ body {
     border-radius: 15px;
     background: rgba(255, 255, 255, 0.05);
     transition: all 0.3s ease;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .project-link:hover {
-    color: var(--primary-color);
-    background: rgba(0, 238, 255, 0.1);
-    transform: translateY(-2px);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 238, 255, 0.3);
+}
+
+.project-link:active {
+    transform: translateY(2px) scale(0.98);
 }
 
 @keyframes cardAppear {
@@ -806,20 +983,43 @@ body {
 }
 
 .contact-card {
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--card-bg);
     border-radius: 15px;
     padding: 2rem;
     text-align: center;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
-    animation: cardFloat 3s ease-in-out infinite;
+    border: var(--card-border);
+    box-shadow: var(--card-shadow);
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
 .contact-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 238, 255, 0.2);
-    border-color: var(--primary-color);
+    transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+    box-shadow: var(--hover-shadow);
+}
+
+.contact-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.contact-card:hover::before {
+    left: 100%;
 }
 
 .contact-card i {
@@ -850,13 +1050,18 @@ body {
     text-decoration: none;
     font-size: 0.9rem;
     transition: all 0.3s ease;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .contact-button:hover {
-    background: var(--primary-color);
-    color: var(--bg-primary);
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 238, 255, 0.3);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 238, 255, 0.3);
+}
+
+.contact-button:active {
+    transform: translateY(2px) scale(0.98);
 }
 
 .contact-form {
@@ -870,6 +1075,8 @@ body {
 .form-group {
     position: relative;
     margin-bottom: 1.5rem;
+    transform-style: preserve-3d;
+    perspective: 1000px;
 }
 
 .form-group input,
@@ -882,6 +1089,8 @@ body {
     color: var(--text-primary);
     font-size: 0.95rem;
     transition: all 0.3s ease;
+    transform: translateZ(10px);
+    transition: transform 0.3s ease;
 }
 
 .form-group textarea {
@@ -903,6 +1112,11 @@ body {
     transform: none;
 }
 
+.form-group input:focus,
+.form-group textarea:focus {
+    transform: translateZ(20px);
+}
+
 .submit-btn {
     width: 100%;
     padding: 1rem;
@@ -918,12 +1132,18 @@ body {
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .submit-btn:hover {
-    background: var(--secondary-color);
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 238, 255, 0.3);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 238, 255, 0.3);
+}
+
+.submit-btn:active {
+    transform: translateY(2px) scale(0.98);
 }
 
 .sms-option {
@@ -946,11 +1166,18 @@ body {
     box-shadow: 0 5px 15px rgba(0, 238, 255, 0.3);
     transition: all 0.3s ease;
     animation: float 3s ease-in-out infinite;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .sms-button:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px) scale(1.02);
     box-shadow: 0 8px 25px rgba(0, 238, 255, 0.4);
+}
+
+.sms-button:active {
+    transform: translateY(2px) scale(0.98);
 }
 
 .sms-button i {
@@ -1243,6 +1470,7 @@ body {
     font-size: 0.95rem;
     overflow: hidden;
     z-index: 1;
+    animation: float 3s ease-in-out infinite;
 }
 
 .share-button::before {
@@ -1415,7 +1643,6 @@ body {
 
     .contact-container {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
     }
 
     .contact-info {
@@ -1486,4 +1713,89 @@ body {
         max-width: 600px;
         margin: 0 auto;
     }
+}
+
+/* Glass Morphism Effect */
+.glass-effect {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: var(--glass-border);
+    box-shadow: var(--glass-shadow);
+}
+
+/* 3D Card Effect */
+.service-card, .project-card, .contact-card {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    background: var(--card-bg);
+    border: var(--card-border);
+    box-shadow: var(--card-shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card:hover, .project-card:hover, .contact-card:hover {
+    transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+    box-shadow: var(--hover-shadow);
+}
+
+.service-card::before, .project-card::before, .contact-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.service-card:hover::before, .project-card:hover::before, .contact-card:hover::before {
+    left: 100%;
+}
+
+/* 3D Button Effects */
+.submit-btn, .contact-button, .sms-button {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.submit-btn:hover, .contact-button:hover, .sms-button:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 238, 255, 0.3);
+}
+
+.submit-btn:active, .contact-button:active, .sms-button:active {
+    transform: translateY(2px) scale(0.98);
+}
+
+/* Dark Mode Enhancement */
+.dark-mode {
+    background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+}
+
+/* Scroll Bar Styling */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color);
 }
