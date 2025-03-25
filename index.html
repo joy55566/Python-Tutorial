@@ -86,10 +86,11 @@
 </head>
 <body class="dark-mode">
     <nav class="navbar">
-        <div class="nav-logo">
-            <div class="logo-text">J</div>
-            <div class="logo-dot"></div>
-            <span>Joy</span>
+        <div class="logo">
+            <div class="portfolio-icon">
+                <i class="fas fa-laptop-code"></i>
+                <span>Portfolio</span>
+            </div>
         </div>
         <div class="nav-links">
             <a href="#home" class="nav-item active">Home</a>
@@ -365,37 +366,58 @@
                 </div>
             </div>
             <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=600&q=80" alt="Todo List App">
-                <div class="project-info">
-                    <h3>Todo List Application</h3>
-                    <p>A Python desktop application for managing daily tasks with a clean GUI using Tkinter.</p>
+                <div class="project-img">
+                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600&q=80" alt="App Development">
+                </div>
+                <div class="project-content">
+                    <h3>App Development</h3>
+                    <p>Modern and user-friendly mobile applications for iOS and Android platforms using React Native and Flutter.</p>
+                    <div class="project-tags">
+                        <span>React Native</span>
+                        <span>Flutter</span>
+                        <span>Firebase</span>
+                    </div>
                     <div class="project-links">
-                        <a href="todo_app.py" class="view-project">View Code</a>
-                        <a href="https://github.com/joy55566/Python-Tutorial/blob/main/todo_app.py" target="_blank" class="source-code">GitHub</a>
+                        <a href="#" class="project-link"><i class="fas fa-info-circle"></i> Details</a>
+                        <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
                     </div>
                 </div>
             </div>
 
             <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1592210454359-9043f067919b?w=600&q=80" alt="Weather App">
-                <div class="project-info">
-                    <h3>Weather Application</h3>
-                    <p>A weather application that shows current weather conditions using OpenWeatherMap API.</p>
+                <div class="project-img">
+                    <img src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=600&q=80" alt="Digital Marketing">
+                </div>
+                <div class="project-content">
+                    <h3>Digital Marketing</h3>
+                    <p>Comprehensive digital marketing strategies including SEO, social media marketing, and content creation.</p>
+                    <div class="project-tags">
+                        <span>SEO</span>
+                        <span>Social Media</span>
+                        <span>Analytics</span>
+                    </div>
                     <div class="project-links">
-                        <a href="weather_app.py" class="view-project">View Code</a>
-                        <a href="https://github.com/joy55566/Python-Tutorial/blob/main/weather_app.py" target="_blank" class="source-code">GitHub</a>
+                        <a href="#" class="project-link"><i class="fas fa-info-circle"></i> Details</a>
+                        <a href="#" class="project-link"><i class="fas fa-chart-line"></i> Results</a>
                     </div>
                 </div>
             </div>
 
             <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1587145820266-a5951ee6f620?w=600&q=80" alt="Calculator App">
-                <div class="project-info">
-                    <h3>Calculator Application</h3>
-                    <p>A modern calculator application with a user-friendly interface built using Python and Tkinter.</p>
+                <div class="project-img">
+                    <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&q=80" alt="Ethical Hacking">
+                </div>
+                <div class="project-content">
+                    <h3>Ethical Hacking</h3>
+                    <p>Cybersecurity services including penetration testing, vulnerability assessment, and security consulting.</p>
+                    <div class="project-tags">
+                        <span>Pentesting</span>
+                        <span>Security</span>
+                        <span>Network</span>
+                    </div>
                     <div class="project-links">
-                        <a href="calculator_app.py" class="view-project">View Code</a>
-                        <a href="https://github.com/joy55566/Python-Tutorial/blob/main/calculator_app.py" target="_blank" class="source-code">GitHub</a>
+                        <a href="#" class="project-link"><i class="fas fa-shield-alt"></i> Services</a>
+                        <a href="#" class="project-link"><i class="fas fa-file-alt"></i> Reports</a>
                     </div>
                 </div>
             </div>
@@ -407,45 +429,67 @@
             <h2>Contact <span class="highlight">Me</span></h2>
             <h3>Get In Touch</h3>
         </div>
-        <div class="contact-content">
-            <form action="https://formspree.io/f/joynixon271@gmail.com" method="POST" class="contact-form">
-                <div class="form-group">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" name="email" placeholder="Your Email" required>
-                </div>
-                <div class="form-group">
-                    <input type="text" name="subject" placeholder="Subject" required>
-                </div>
-                <div class="form-group">
-                    <textarea name="message" placeholder="Your Message" required></textarea>
-                </div>
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form>
+
+        <div class="contact-container">
             <div class="contact-info">
-                <div class="info-item">
-                    <i class="fas fa-phone"></i>
-                    <div>
-                        <h3>Call Me</h3>
-                        <p>+880 1892146659</p>
-                    </div>
-                </div>
-                <div class="info-item">
+                <div class="contact-card email">
                     <i class="fas fa-envelope"></i>
-                    <div>
-                        <h3>Email</h3>
-                        <p>joynixon271@gmail.com</p>
-                    </div>
+                    <h3>Email</h3>
+                    <p>joy55566@example.com</p>
+                    <a href="mailto:joy55566@example.com" class="contact-button">
+                        <i class="fas fa-paper-plane"></i> Send Email
+                    </a>
                 </div>
-                <div class="info-item">
+
+                <div class="contact-card phone">
+                    <i class="fas fa-phone-alt"></i>
+                    <h3>Phone</h3>
+                    <p>+880 1234-567890</p>
+                    <a href="tel:+8801234567890" class="contact-button">
+                        <i class="fas fa-phone"></i> Call Now
+                    </a>
+                </div>
+
+                <div class="contact-card location">
                     <i class="fas fa-map-marker-alt"></i>
-                    <div>
-                        <h3>Location</h3>
-                        <p>Bangladesh</p>
-                    </div>
+                    <h3>Location</h3>
+                    <p>Dhaka, Bangladesh</p>
+                    <a href="https://maps.google.com" target="_blank" class="contact-button">
+                        <i class="fas fa-map"></i> View Map
+                    </a>
                 </div>
             </div>
+
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required>
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="Your Phone" required>
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Your Message" required></textarea>
+                        <i class="fas fa-comment-alt"></i>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="sms-option">
+            <a href="sms:+8801234567890" class="sms-button">
+                <i class="fas fa-sms"></i>
+                <span>Send SMS</span>
+            </a>
         </div>
     </section>
 
