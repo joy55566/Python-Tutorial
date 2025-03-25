@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joy's Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .words-wrapper {
+            display: inline-block;
+            position: relative;
+        }
+        .word {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        .word.active {
+            opacity: 1;
+        }
+
+        .profession-text {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .flip-animation {
+            display: inline-block;
+            position: relative;
+            min-width: 250px;
+            height: 45px;
+            overflow: hidden;
+        }
+
+        .flip-item {
+            color: #00ff00;
+            position: absolute;
+            width: 100%;
+            animation: flip 8s infinite;
+            opacity: 0;
+            transform-origin: 50% 100%;
+            transform: rotateX(180deg);
+        }
+
+        @keyframes flip {
+            0%, 20% {
+                transform: rotateX(180deg);
+                opacity: 0;
+            }
+            25%, 45% {
+                transform: rotateX(0);
+                opacity: 1;
+            }
+            50%, 70% {
+                transform: rotateX(0);
+                opacity: 1;
+            }
+            75%, 95% {
+                transform: rotateX(-180deg);
+                opacity: 0;
+            }
+        }
+
+        .typewriter {
+            color: #00ff00;
+            border-right: 3px solid #00ff00;
+            padding-right: 5px;
+            animation: blink 0.75s step-end infinite;
+        }
+
+        @keyframes blink {
+            from, to { border-color: transparent }
+            50% { border-color: #00ff00 }
+        }
+    </style>
+</head>
+<body class="dark-mode">
+    <nav class="navbar">
+        <div class="nav-logo">
+            <div class="logo-text">J</div>
+            <div class="logo-dot"></div>
+            <span>Joy</span>
+        </div>
+        <div class="nav-links">
+            <a href="#home" class="nav-item active">Home</a>
+            <a href="#about" class="nav-item">About</a>
+            <a href="#services" class="nav-item">Services</a>
+            <a href="#skills" class="nav-item">Skills</a>
+            <a href="#projects" class="nav-item">Projects</a>
+            <a href="#contact" class="nav-item">Contact</a>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h2 class="hello-text">Hello I'm</h2>
+                <h1 class="name-text">Joy</h1>
+                <h3 class="profession-text">
+                    I am a <span class="typewriter"></span>
+                </h3>
+                <p class="hero-description">
+                    I'm a web Designer with extensive experience for over 3 years.
+                    expertise is to create and website design, Frontend design, and many more...
+                </p>
+                <div class="social-links">
+                    <a href="https://wa.me/+8801892146659" class="social-icon" target="_blank" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="tel:+8801892146659" class="social-icon" title="Call Me">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                    <a href="mailto:joynixon271@gmail.com" class="social-icon" title="Email Me">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=100082733041446" class="social-icon" target="_blank" title="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </div>
+                <a href="#about" class="more-about">More About Me</a>
+            </div>
+            <div class="hero-image">
+                <div class="image-glow"></div>
+                <div class="image-circle">
+                    <img src="images/profile.jpg" alt="Profile Picture">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="section-title">
+            <h2>About <span class="highlight">Me</span></h2>
+            <h3>Who I Am</h3>
+        </div>
+        <div class="about-content">
+            <div class="about-image">
+                <div class="image-border">
+                    <img src="images/profile.jpg" alt="About Me Picture">
+                </div>
+            </div>
+            <div class="about-text">
+                <p>
+                    I'm a passionate web developer with a strong foundation in both frontend and backend technologies.
+                    My journey in web development started 3 years ago, and since then, I've been creating beautiful
+                    and functional websites that leave a lasting impression.
+                </p>
+                <div class="about-info">
+                    <div class="info-item">
+                        <span class="info-title">Experience:</span>
+                        <span class="info-value">3+ Years</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-title">Specialty:</span>
+                        <span class="info-value">Web Design</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-title">Address:</span>
+                        <span class="info-value">Bangladesh</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-title">Email:</span>
+                        <span class="info-value">joy@example.com</span>
+                    </div>
+                </div>
+                <a href="#" class="download-cv">Download CV</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="section-title">
+            <h2>My <span class="highlight">Services</span></h2>
+            <h3>What I Provide</h3>
+        </div>
+        <div class="services-container">
+            <div class="service-card">
+                <i class="fas fa-code"></i>
+                <h3>Web Development</h3>
+                <p>Create modern and responsive websites using the latest technologies and best practices.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-paint-brush"></i>
+                <h3>Web Design</h3>
+                <p>Design beautiful and user-friendly interfaces that provide great user experience.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Responsive Design</h3>
+                <p>Ensure your website works perfectly on all devices and screen sizes.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <div class="section-title">
+            <h2>My <span class="highlight">Skills</span></h2>
+            <h3>What I Know</h3>
+        </div>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3>Frontend Development</h3>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>HTML</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>CSS</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>JavaScript</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>React</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Backend Development</h3>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Python</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Node.js</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>MySQL</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>MongoDB</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 70%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="section-title">
+            <h2>My <span class="highlight">Projects</span></h2>
+            <h3>Recent Works</h3>
+        </div>
+        <div class="projects-container">
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="E-commerce Website">
+                </div>
+                <div class="project-content">
+                    <h3>E-commerce Website</h3>
+                    <p>A fully responsive e-commerce website with modern design and shopping cart functionality.</p>
+                    <div class="project-tags">
+                        <span>React</span>
+                        <span>Node.js</span>
+                        <span>MongoDB</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
+                        <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Portfolio Website">
+                </div>
+                <div class="project-content">
+                    <h3>Portfolio Website</h3>
+                    <p>A modern portfolio website with smooth animations and dark theme.</p>
+                    <div class="project-tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
+                        <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Task Manager">
+                </div>
+                <div class="project-content">
+                    <h3>Task Manager</h3>
+                    <p>A full-stack task management application with user authentication and real-time updates.</p>
+                    <div class="project-tags">
+                        <span>React</span>
+                        <span>Express</span>
+                        <span>MongoDB</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
+                        <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="section-title">
+            <h2>Contact <span class="highlight">Me</span></h2>
+            <h3>Get In Touch</h3>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-card">
+                    <i class="fas fa-phone"></i>
+                    <h3>Phone</h3>
+                    <p><a href="tel:+8801892146659">+880 1892146659</a></p>
+                </div>
+                <div class="contact-card">
+                    <i class="fab fa-whatsapp"></i>
+                    <h3>WhatsApp</h3>
+                    <p><a href="https://wa.me/+8801892146659">+880 1892146659</a></p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p><a href="mailto:joynixon271@gmail.com">joynixon271@gmail.com</a></p>
+                </div>
+                <div class="contact-social">
+                    <h3>Follow Me</h3>
+                    <div class="social-links">
+                        <a href="https://wa.me/+8801892146659" class="social-icon" target="_blank" title="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="tel:+8801892146659" class="social-icon" title="Call Me">
+                            <i class="fas fa-phone"></i>
+                        </a>
+                        <a href="mailto:joynixon271@gmail.com" class="social-icon" title="Email Me">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=100082733041446" class="social-icon" target="_blank" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <h3>Send Message</h3>
+                <form action="https://formsubmit.co/joynixon271@gmail.com" method="POST">
+                    <!-- Honeypot -->
+                    <input type="text" name="_honey" style="display:none">
+                    
+                    <!-- Disable Captcha -->
+                    <input type="hidden" name="_captcha" value="false">
+                    
+                    <!-- Success Page -->
+                    <input type="hidden" name="_next" value="https://formsubmit.co/thanks.html">
+
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="subject" placeholder="Subject" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <div class="logo-text">J</div>
+                <div class="logo-dot"></div>
+                <span>Joy</span>
+            </div>
+            <p>Living, learning, & leveling up one day at a time.</p>
+            <div class="social-links">
+                <a href="https://wa.me/+8801892146659" class="social-icon" target="_blank" title="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="tel:+8801892146659" class="social-icon" title="Call Me">
+                    <i class="fas fa-phone"></i>
+                </a>
+                <a href="mailto:joynixon271@gmail.com" class="social-icon" title="Email Me">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=100082733041446" class="social-icon" target="_blank" title="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Joy. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const words = ['Frontend Developer', 'Web Designer', 'UI/UX Designer', 'Freelancer'];
+        const typewriter = document.querySelector('.typewriter');
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let isWaiting = false;
+
+        function type() {
+            const currentWord = words[wordIndex];
+            
+            if (isDeleting) {
+                // Remove characters
+                typewriter.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                // Add characters
+                typewriter.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            // Typing speed
+            let typeSpeed = isDeleting ? 100 : 150;
+
+            if (!isDeleting && charIndex === currentWord.length) {
+                // Delay before start deleting
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                // Move to next word
+                wordIndex = (wordIndex + 1) % words.length;
+                // Delay before start typing
+                typeSpeed = 500;
+            }
+
+            setTimeout(type, typeSpeed);
+        }
+
+        // Start the animation
+        setTimeout(type, 1000);
+    </script>
+</body>
+</html>
